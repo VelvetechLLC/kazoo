@@ -105,6 +105,7 @@ fetch_attachment(HandlerProps, _DbName, _DocId, _AName) ->
 fetch_attachment(URL) ->
     case fetch_attachment(URL, 0, kz_json:new()) of
         {'ok', _Url, Body, _Debug} -> {'ok', Body};
+        {'ok', _Body} = Reply -> Reply;
         {'error', _} = Error -> Error
     end.
 
